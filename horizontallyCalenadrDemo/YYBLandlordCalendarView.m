@@ -76,27 +76,6 @@
     return cell;
 }
 
-/**
- *  组头视图
- *
- *  @param collectionView collectionView
- *  @param kind
- *  @param indexPath      indexPath
- *
- *  @return 视图
- */
-- (UICollectionReusableView*)collectionView:(UICollectionView*)collectionView viewForSupplementaryElementOfKind:(NSString*)kind atIndexPath:(NSIndexPath*)indexPath
-{
-    
-    UICollectionReusableView* view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kheaderIdentifier forIndexPath:indexPath];
-    UILabel* label = (UILabel*)[view viewWithTag:2000];
-    
-    NSArray* sectionArray = self.dateArray[indexPath.section];
-    YYBHouseCalendarModel* model = sectionArray[indexPath.item];
-    label.text = [NSString stringWithFormat:@" %ld月 %li", model.month, model.year];
-    return view;
-}
-
 #pragma mark delegate
 //header 行高
 - (CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
